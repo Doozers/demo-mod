@@ -3,7 +3,7 @@ module github.com/Doozers/demo-mod/discord
 go 1.19
 
 require (
-	github.com/Doozers/demo-mod/ffcli v0.0.0-20221017120557-5757b1937b96
+	github.com/Doozers/demo-mod/ffcli v0.0.0-20221017130919-b6148e76146e
 	github.com/bwmarrin/discordgo v0.26.1
 )
 

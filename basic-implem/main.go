@@ -14,24 +14,6 @@ import (
 	"github.com/peterbourgon/ff/v3/ffcli"
 )
 
-type serverPlus struct {
-	demomod.DemomodSvcServer
-}
-
-func (s serverPlus) EchoStream(stream demomod.DemomodSvc_EchoStreamServer) error {
-	for {
-		in, err := stream.Recv()
-		if err != nil {
-			return err
-		}
-
-		err = stream.Send(&demomod.EchoStream_Output{Reply: in.GetText()})
-		if err != nil {
-			return err
-		}
-	}
-}
-
 func main() {
 	err := basic(os.Args[1:])
 	if err != nil {
@@ -71,7 +53,7 @@ func server() *ffcli.Command {
 			}
 			grpcServer := grpc.NewServer()
 
-			demomod.RegisterDemomodSvcServer(grpcServer, serverPlus{})
+			demomod.RegisterDemomodSvcServer(grpcServer, demomod.New("test"))
 
 			return grpcServer.Serve(lis)
 		},

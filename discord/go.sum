@@ -1,7 +1,7 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
-github.com/Doozers/demo-mod/ffcli v0.0.0-20221017120557-5757b1937b96 h1:t1MQ3WanDrFH9CcIOUt/Hu8Y9mK2Vt0lIADq/S6A4P0=
-github.com/Doozers/demo-mod/ffcli v0.0.0-20221017120557-5757b1937b96/go.mod h1:6LVi846SwHkNuZsShXicVFhVIFMcvQPCMC5MPi+qFyk=
+github.com/Doozers/demo-mod/ffcli v0.0.0-20221017130919-b6148e76146e h1:clVLRtngrceSd1vN4Jkxm9974uDBrD08rkIqsp6OHnI=
+github.com/Doozers/demo-mod/ffcli v0.0.0-20221017130919-b6148e76146e/go.mod h1:6LVi846SwHkNuZsShXicVFhVIFMcvQPCMC5MPi+qFyk=
 github.com/bwmarrin/discordgo v0.26.1 h1:AIrM+g3cl+iYBr4yBxCBp9tD9jR3K7upEjl0d89FRkE=
 github.com/bwmarrin/discordgo v0.26.1/go.mod h1:NJZpH+1AfhIcyQsPeuBKsUtYrRnjkyu0kIVMCHkZtRY=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
