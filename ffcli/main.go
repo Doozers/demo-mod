@@ -63,7 +63,7 @@ func sum() *ffcli.Command {
 				return err
 			}
 
-			result, err := sumAction(c, A, B)
+			result, err := SumAction(c, A, B)
 			if err != nil {
 				return err
 			}
@@ -85,7 +85,7 @@ func sayHello() *ffcli.Command {
 				return err
 			}
 
-			result, err := sayHelloAction(c)
+			result, err := SayHelloAction(c)
 			if err != nil {
 				return err
 			}
@@ -136,13 +136,12 @@ func echoStream() *ffcli.Command {
 				}
 			}()
 
-			err = echoStreamAction(c, &send, &receive)
+			err = EchoStreamAction(c, &send, &receive)
 			if err != nil {
 				return err
 			}
 
 			for {
-				// wait for the end of the stream
 			}
 		},
 	}

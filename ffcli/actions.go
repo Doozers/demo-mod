@@ -6,7 +6,7 @@ import (
 	demomod "moul.io/adapterkit-module-demo"
 )
 
-func sumAction(c demomod.DemomodSvcClient, A, B int64) (int64, error) {
+func SumAction(c demomod.DemomodSvcClient, A, B int64) (int64, error) {
 	result, err := c.Sum(context.Background(), &demomod.Sum_Request{
 		A: A,
 		B: B,
@@ -18,7 +18,7 @@ func sumAction(c demomod.DemomodSvcClient, A, B int64) (int64, error) {
 	return result.C, nil
 }
 
-func sayHelloAction(c demomod.DemomodSvcClient) (string, error) {
+func SayHelloAction(c demomod.DemomodSvcClient) (string, error) {
 	result, err := c.SayHello(context.Background(), &demomod.Empty{})
 	if err != nil {
 		return "", err
@@ -27,7 +27,7 @@ func sayHelloAction(c demomod.DemomodSvcClient) (string, error) {
 	return result.Msg, nil
 }
 
-func echoStreamAction(c demomod.DemomodSvcClient, send, receive *chan string) error {
+func EchoStreamAction(c demomod.DemomodSvcClient, send, receive *chan string) error {
 	stream, err := c.EchoStream(context.Background())
 	if err != nil {
 		return err
