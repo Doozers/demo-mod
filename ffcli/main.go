@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"context"
 	"flag"
 	"fmt"
@@ -32,6 +33,8 @@ func demoMod(args []string) error {
 		Options:    []ff.Option{ff.WithEnvVarNoPrefix()},
 		Subcommands: []*ffcli.Command{
 			sum(),
+			sayHello(),
+			echoStream(),
 		},
 		Exec: func(_ context.Context, _ []string) error {
 			return flag.ErrHelp
@@ -69,4 +72,79 @@ func sum() *ffcli.Command {
 			return nil
 		},
 	}
+}
+
+func sayHello() *ffcli.Command {
+	return &ffcli.Command{
+		Name:       "sayHello",
+		ShortUsage: "demo-mod sayHello",
+		Options:    []ff.Option{ff.WithEnvVarNoPrefix()},
+		Exec: func(_ context.Context, _ []string) error {
+			c, err := getClient()
+			if err != nil {
+				return err
+			}
+
+			result, err := sayHelloAction(c)
+			if err != nil {
+				return err
+			}
+
+			fmt.Println(result)
+			return nil
+		},
+	}
+}
+
+func echoStream() *ffcli.Command {
+	return &ffcli.Command{
+		Name:       "echoStream",
+		ShortUsage: "demo-mod echoStream",
+		Options:    []ff.Option{ff.WithEnvVarNoPrefix()},
+		Exec: func(_ context.Context, _ []string) error {
+			c, err := getClient()
+			if err != nil {
+				return err
+			}
+
+			send := make(chan string)
+			receive := make(chan string)
+
+			go func() {
+				Reader := bufio.NewReader(os.Stdin)
+				var input string
+				for {
+					input, _ = Reader.ReadString('\n')
+					fmt.Print(" >> ")
+
+					if len(input) > 1 {
+						send <- input
+					} else {
+						send <- ""
+					}
+				}
+			}()
+
+			go func() {
+				for {
+					text, ok := <-receive
+					if !ok {
+						return
+					}
+
+					fmt.Println(text)
+				}
+			}()
+
+			err = echoStreamAction(c, &send, &receive)
+			if err != nil {
+				return err
+			}
+
+			for {
+				// wait for the end of the stream
+			}
+		},
+	}
+
 }
