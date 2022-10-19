@@ -83,5 +83,5 @@ google.golang.org/protobuf v1.28.1 h1:d0NfwRgPtno5B1Wa6L2DAG+KivqkdutMf1UhdNx175
 google.golang.org/protobuf v1.28.1/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
 honnef.co/go/tools v0.0.0-20190102054323-c2f93a96b099/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=
 honnef.co/go/tools v0.0.0-20190523083050-ea95bdfd59fc/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=
-moul.io/adapterkit-module-demo v0.0.0-20221017135517-5974f92832d2 h1:98pfR8ToavzRXCrC6Z0erbz5979X6VonAiXuD5298ZU=
-moul.io/adapterkit-module-demo v0.0.0-20221017135517-5974f92832d2/go.mod h1:4U85okxO1Dd3g5yiOZ2nRM4D23jPRTRkMO9wCjmRKmg=
+moul.io/adapterkit-module-demo v0.0.0-20221017135533-63dbcb3a7c60 h1:bsYdA5F4ulWM4mjPYPBSeuFXj8yPbgq4WvB4vPoxKRo=
+moul.io/adapterkit-module-demo v0.0.0-20221017135533-63dbcb3a7c60/go.mod h1:98TwPpbUpeHsLMc1mtqh4xkya6xTdeQL8Y05tUDP/20=

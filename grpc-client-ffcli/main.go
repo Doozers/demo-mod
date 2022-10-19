@@ -12,11 +12,6 @@ import (
 	"github.com/peterbourgon/ff/v3/ffcli"
 )
 
-var opts struct {
-	cmd string
-	arg string
-}
-
 func main() {
 	if err := demoMod(os.Args[1:]); err != nil {
 		log.Fatal(err)
