@@ -15,16 +15,6 @@ type Request struct {
 	Sum         *action.Sum `json:"sum"`
 }
 
-var client *ec2.Client
-
-func init() {
-	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion("eu-west-3"))
-	if err != nil {
-		panic("configuration error, " + err.Error())
-	}
-	client = ec2.NewFromConfig(cfg)
-}
-
 func HandleRequest(req Request) (string, error) {
 	switch req.RequestType {
 	case "sum":
