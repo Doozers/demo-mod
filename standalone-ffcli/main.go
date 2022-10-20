@@ -92,7 +92,6 @@ func echoStream() *ffcli.Command {
 					input, _ = Reader.ReadString('\n')
 					fmt.Print(" >> ")
 
-					fmt.Println(len(input) - 1)
 					if len(input[:len(input)-1]) > 1 {
 						receive <- EchoStreamAction(input[:len(input)-1])
 					} else {
