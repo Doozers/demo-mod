@@ -1,4 +1,4 @@
-module github.com/Doozers/aws-lambda-test
+module github.com/Doozers/demo-mod/aws-lambda
 
 go 1.19
 
