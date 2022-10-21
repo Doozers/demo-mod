@@ -55,7 +55,10 @@ func sum() *ffcli.Command {
 		Options:    []ff.Option{ff.WithEnvVarNoPrefix()},
 		FlagSet:    sumFs,
 		Exec: func(_ context.Context, _ []string) error {
-			result := SumAction(A, B)
+			result, err := SumAction(A, B)
+			if err != nil {
+				return err
+			}
 
 			fmt.Printf("%d + %d = %d", A, B, result)
 			return nil
@@ -69,8 +72,10 @@ func sayHello() *ffcli.Command {
 		ShortUsage: "demo-mod sayHello",
 		Options:    []ff.Option{ff.WithEnvVarNoPrefix()},
 		Exec: func(_ context.Context, _ []string) error {
-			result := SayHelloAction()
-
+			result, err := SayHelloAction()
+			if err != nil {
+				return err
+			}
 			fmt.Println(result)
 			return nil
 		},
@@ -93,7 +98,7 @@ func echoStream() *ffcli.Command {
 					fmt.Print(" >> ")
 
 					if len(input[:len(input)-1]) > 1 {
-						receive <- EchoStreamAction(input[:len(input)-1])
+						//receive <- EchoStreamAction(input[:len(input)-1])
 					} else {
 						receive <- ""
 						return
