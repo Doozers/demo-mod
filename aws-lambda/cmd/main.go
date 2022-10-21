@@ -12,10 +12,8 @@ func HandleRequest(req types.Request) (types.Response, error) {
 	switch req.RequestType {
 	case "sum":
 		return action.SumAction(req.Sum)
-
 	case "sayHello":
 		return action.SayHelloAction()
-
 	default:
 		return types.Response{}, fmt.Errorf("invalid request type, %s", req.RequestType)
 	}
